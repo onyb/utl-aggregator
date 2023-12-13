@@ -14,6 +14,9 @@ interface TrustedListToken {
     logoURI: string
     tags: Tag[]
     address: string
+    extensions: {
+        coingeckoId: string
+    } | undefined
 }
 
 interface TrustedList {
@@ -51,6 +54,7 @@ export class ProviderTrusted extends Provider {
                     tags: new Set<Tag>(token.tags),
                     verified: true,
                     holders: null,
+                    extensions: token.extensions
                 })
             }
         }
